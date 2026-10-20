@@ -1,0 +1,62 @@
+/* =========================================================
+   Bookshelf · Live Lab 1 · STARTER
+   Work through the TODOs in order. Check every step in the
+   browser (Live Server) and inspect it with DevTools.
+   Palette:  navy #1d3557 · light blue #a8dadc · sand #f2cc8f
+             brick #7b2d26 · paper #faf7f2
+   ========================================================= */
+
+/* TODO A — Universal selector
+   Reset margin and padding on every element and set box-sizing: border-box. */
+
+
+/* TODO B — Element selectors
+   body: serif font, line-height 1.6, paper background, dark text.
+   h1, h2, h3: sans-serif font.
+   h2: brick color, some space below. */
+
+
+/* TODO C — Header
+   .site-header: navy background, light text, padding, centered text. */
+
+
+/* TODO D — Navigation
+   1. Descendant selector: links inside .site-header nav -> light blue, no underline.
+   2. Child selector: .nav-list > li -> display: inline, no bullets, side margins.
+   3. Pseudo-classes: :hover and :focus -> white + underline.
+   4. The .active link -> sand color, bold. */
+
+
+/* TODO E — Attribute selector + pseudo-element
+   Every link with target="_blank" gets a " ↗" after it (use ::after and content). */
+
+
+/* TODO F — main: max-width 720px, centered with margin auto, some padding. */
+
+
+/* TODO G — Book cards
+   .book-card: white background, thin border, rounded corners, padding,
+   space below, centered text.
+   .author: italic, grey.   .meta: smaller, grey.   .genre: uppercase. */
+
+
+/* TODO H — Cascade & specificity
+   1. .book-card.featured -> pale yellow background, sand border.
+   2. Before writing it, predict: will it win against .book-card? Why?
+   3. Try moving the rule ABOVE .book-card. Does anything change? */
+
+
+/* TODO I — Buttons (.btn and button)
+   Navy background, white text, no border, rounded, padding.
+   :hover -> lighter blue (#457b9d). */
+
+
+/* TODO J — Form
+   Labels on their own line (display: block), bold.
+   Inputs and select full width, padding, border, rounded.
+   :focus -> visible outline.
+   BONUS: red border on invalid fields, but only after the user typed
+   something (hint: :invalid combined with :not(:placeholder-shown)). */
+
+
+/* TODO K — Footer: centered, small grey text, top border. */

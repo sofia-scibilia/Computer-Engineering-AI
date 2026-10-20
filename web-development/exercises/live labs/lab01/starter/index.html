@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1 class="logo">Bookshelf</h1>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="#catalog" class="active">Catalog</a></li>
+          <li><a href="#suggest">Suggest a book</a></li>
+          <li><a href="https://www.gutenberg.org" target="_blank" rel="noopener">Project Gutenberg</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro">
+        <h2>Public domain classics</h2>
+        <p>Six novels everyone has heard of and few have actually read. All of them are free, legal and one click away.</p>
+      </section>
+
+      <section id="catalog" class="catalog">
+        <h2>Catalog</h2>
+
+        <!-- One card is done for you. Use it as a model. -->
+        <article class="book-card">
+          <img src="img/frankenstein.svg" alt="Cover of Frankenstein by Mary Shelley" width="160" height="240" />
+          <h3>Frankenstein</h3>
+          <p class="author">Mary Shelley</p>
+          <p class="meta"><span class="year">1818</span> · <span class="genre">Gothic</span></p>
+          <a href="https://www.gutenberg.org/ebooks/84" target="_blank" rel="noopener" class="btn">Read online</a>
+        </article>
+
+        <article class="book-card">
+          <img src="img/pride-and-prejudice.svg" alt="Cover of Pride and Prejudice by Jane Austen" width="160" height="240" />
+          <h3>Pride and Prejudice</h3>
+          <p class="author">Jane Austen</p>
+          <p class="meta"><span class="year">1813</span> · <span class="genre">Romance</span></p>
+          <a href="https://www.gutenberg.org/ebooks/1342" target="_blank" rel="noopener" class="btn">Read online</a>
+        </article>
+
+        <article class="book-card featured">
+          <img src="img/moby-dick.svg" alt="Cover of Moby-Dick by Herman Melville" width="160" height="240" />
+          <h3>Moby-Dick</h3>
+          <p class="author">Herman Melville</p>
+          <p class="meta"><span class="year">1851</span> · <span class="genre">Adventure</span></p>
+          <a href="https://www.gutenberg.org/ebooks/2701" target="_blank" rel="noopener" class="btn">Read online</a>
+        </article>
+
+        <article class="book-card">
+          <img src="img/the-time-machine.svg" alt="Cover of The Time Machine by H. G. Wells" width="160" height="240" />
+          <h3>The Time Machine</h3>
+          <p class="author">H. G. Wells</p>
+          <p class="meta"><span class="year">1895</span>. <span class="genre">Sci-fi</span></p>
+          <a href="https://www.gutenberg.org/ebooks/35" target="_blank" rel="noopener" class="btn">Read online</a>
+        </article>
+
+        <article class="book-card">
+          <img src="img/dracula.svg" alt="Cover of Dracula by Bram Stoker" width="160" height="240" />
+          <h3>Dracula</h3>
+          <p class="author">Bram Stoker</p>
+          <p class="meta"><span class="year">1897</span>. <span class="genre">Gothic</span></p>
+          <a href="https://www.gutenberg.org/ebooks/345" target="_blank" rel="noopener" class="btn">Read online</a>"
+        </article>
+
+        <article>
+          <img src="img/alice-in-wonderland.svg" alt="Cover of Alice in Wonderland by Lewis Carrol" width="160" height="240" />
+          <h3>Alice in Wonderland</h3>
+          <p class="author">Lewis Carrol</p>
+          <p class="year"><span class="year">1865</span>. <span>Fantasy</span></p>
+          <a href="https://www.gutenberg.org/ebooks/11">Read online</a>
+        </article>
+      </section>
+
+      <section id="suggest" class="suggest">
+        <h2>Suggest a book</h2>
+        <form>
+          <label for="title">Title: </label>
+          <input type="text" id="title" required placeholder="ex. Alice in Wonderland" />
+          <label for="author">Author: </label>
+          <input type="text" id="author" required placeholder="ex. Lewis Carrol" />
+          <label for="year">Year: </label>
+          <input type="number" id="year" min="1450" max="1929" placeholder="ex. 1865" />
+          <label for="genre">Genre: </label>
+          <select id="genre">
+            <option>Adventure</option>
+            <option>Gothic</option>
+            <option>Romance</option>
+            <option>Sci-fi</option>
+            <option>Fantasy</option>
+          </select>
+          <label for="email">Email: </label>
+          <input type="email" id="email" required placeholder="ex. mymail@gmail.com" />
+          <button>Submit</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Sofia Scibilia &copy 2026 </p>
+    </footer>
+  </body>
+</html>

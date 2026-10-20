@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="240" viewBox="0 0 160 240">
+<rect width="160" height="240" fill="#1d3557"/>
+<rect x="10" y="10" width="140" height="220" fill="none" stroke="#a8dadc" stroke-width="1.5" opacity="0.6"/>
+<line x1="40" y1="150" x2="120" y2="150" stroke="#a8dadc" stroke-width="1" opacity="0.6"/>
+<text x="80" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#a8dadc">Moby-Dick</text>
+<text x="80" y="185" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#a8dadc">Herman Melville</text>
+</svg>
