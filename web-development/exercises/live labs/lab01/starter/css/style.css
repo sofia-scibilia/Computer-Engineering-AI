@@ -1,62 +1,119 @@
-/* =========================================================
-   Bookshelf · Live Lab 1 · STARTER
-   Work through the TODOs in order. Check every step in the
-   browser (Live Server) and inspect it with DevTools.
-   Palette:  navy #1d3557 · light blue #a8dadc · sand #f2cc8f
-             brick #7b2d26 · paper #faf7f2
-   ========================================================= */
+* {
+   margin: 0.5vw;
+   padding: 0.1vw;
+   box-sizing: border-box;
+}
 
-/* TODO A — Universal selector
-   Reset margin and padding on every element and set box-sizing: border-box. */
+body {
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   line-height: 1.6;
+   background-color: #faf7f2;
+   color: black;
+}
 
+h1, h2, h3 {
+   font-family: Arial, Helvetica, sans-serif sans-serif;
+}
 
-/* TODO B — Element selectors
-   body: serif font, line-height 1.6, paper background, dark text.
-   h1, h2, h3: sans-serif font.
-   h2: brick color, some space below. */
+h2 {
+   color: #7b2d26;
+   line-height: 3.5;
+}
 
+.site-header {
+   background-color: #1d3557;
+   color: white;
+   padding: 0.5vw;
+   text-align: center;
+   & nav a {
+      color: #a8dadc;
+      text-decoration: none;
+      &:hover, &:focus {
+         color: white;
+         text-decoration: underline;
+      }
+      &.active {
+         color: #f2cc8f;
+         font-weight: bold;
+      }
+   }
+}
 
-/* TODO C — Header
-   .site-header: navy background, light text, padding, centered text. */
+.nav-list li {
+   display: inline;
+   list-style-type: none;
+   margin-right: 2vw;
+}
 
+a[target="_blank"]::after {
+   content: " ↗";
+}
 
-/* TODO D — Navigation
-   1. Descendant selector: links inside .site-header nav -> light blue, no underline.
-   2. Child selector: .nav-list > li -> display: inline, no bullets, side margins.
-   3. Pseudo-classes: :hover and :focus -> white + underline.
-   4. The .active link -> sand color, bold. */
+main {
+   max-width: 720px;
+   margin: auto;
+   padding: 1vw;
+}
 
+.book-card {
+   background-color: white;
+   border: thin;
+   border-radius: 5%;
+   padding: 1vw;
+   line-height: 2.5;
+   text-align: center;
+   &.featured {
+      background-color: #FFFFBF;
+      border-style: solid;
+      border-color: #f2cc8f;
+   }
+}
 
-/* TODO E — Attribute selector + pseudo-element
-   Every link with target="_blank" gets a " ↗" after it (use ::after and content). */
+.author {
+   font-style: italic;
+   color: grey;
+}
 
+.meta {
+   font-size: smaller;
+   color:  grey;
+}
 
-/* TODO F — main: max-width 720px, centered with margin auto, some padding. */
+.genre {
+   text-transform: uppercase;
+}
 
+.btn, button {
+   background-color: #1d3557;
+   color: white;
+   border-style: none;
+   border-radius: 5%;
+   padding: 2%;
+   &:hover {
+      color: #457b9d;
+   }
+}
 
-/* TODO G — Book cards
-   .book-card: white background, thin border, rounded corners, padding,
-   space below, centered text.
-   .author: italic, grey.   .meta: smaller, grey.   .genre: uppercase. */
+label {
+   display: block;
+   font-weight: bold;
+}
 
+.suggest-form input, select {
+   width: 100%;
+   padding: 2%;
+   border-radius: 5%;
+   &:hover {
+      outline: auto;
+   }
+   &:invalid, &:placeholder-shown {
+      border-color: red;
+   }
+}
 
-/* TODO H — Cascade & specificity
-   1. .book-card.featured -> pale yellow background, sand border.
-   2. Before writing it, predict: will it win against .book-card? Why?
-   3. Try moving the rule ABOVE .book-card. Does anything change? */
-
-
-/* TODO I — Buttons (.btn and button)
-   Navy background, white text, no border, rounded, padding.
-   :hover -> lighter blue (#457b9d). */
-
-
-/* TODO J — Form
-   Labels on their own line (display: block), bold.
-   Inputs and select full width, padding, border, rounded.
-   :focus -> visible outline.
-   BONUS: red border on invalid fields, but only after the user typed
-   something (hint: :invalid combined with :not(:placeholder-shown)). */
-
-
-/* TODO K — Footer: centered, small grey text, top border. */
+footer {
+   text-align: center;
+   font-size: small;
+   color: grey;
+   border-top-style: solid;
+}
