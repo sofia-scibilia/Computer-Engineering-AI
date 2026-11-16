@@ -1,11 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="img/pawsnpals_favicon.svg" />
+
+    <title>Paws&Pals | Browse Dogs</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <img class="logo" src="img/pawsnpals_logo.svg" alt="Paws&Pals logo" />
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="dogs.html" class="active">Browse Dogs</a></li>
+          <li><a href="favourites.html">Favourites</a></li>
+          <li><a href="profile.html">My Profile</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="library">
+        <h1>Browse all dogs!</h1>
+        <div class="flex-container" id="flex-container-dogs"></div>
+        <hr />
+        <a class="btn" id="see-more">See more</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>Paws&Pals &copy; 2026 - Built with care for dogs lovers 🐶</p>
+      <a href="#top"
+        ><img id="back-to-top" src="img/up-arrow.svg" alt="Back to top"
+      /></a>
+    </footer>
+
+    <script src="js/dogs.js"></script>
+  </body>
 </html>

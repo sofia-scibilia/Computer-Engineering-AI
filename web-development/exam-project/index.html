@@ -10,14 +10,13 @@
     <title>Paws&Pals | Home</title>
   </head>
   <body>
-    <script src="js/main.js"></script>
     <header>
       <nav class="navbar">
         <img class="logo" src="img/pawsnpals_logo.svg" alt="Paws&Pals logo" />
         <ul class="nav-links">
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="dogs.html">Browse Dogs</a></li>
-          <li><a href="adopt.html">Favourites</a></li>
+          <li><a href="favourites.html">Favourites</a></li>
           <li><a href="profile.html">My Profile</a></li>
         </ul>
       </nav>
@@ -25,7 +24,7 @@
 
     <main>
       <section class="hero">
-        <h1>Find your new best friend</h1>
+        <h1 id="top">Find your new best friend</h1>
         <img src="img/hero.jpeg" alt="A girl hugging a newly adopted dog." />
         <h2>Welcome to Paws&Pals</h2>
         <p>
@@ -48,47 +47,30 @@
 
       <section class="library">
         <h2>Newly arrived dogs!</h2>
-        <div class="flex-container">
-          <article class="card">
-            <img src="img/placeholder.jpeg" alt="Image not available" />
-            <p>Name:</p>
-            <p>Age:</p>
-            <a href="adopt.html" class="btn">Adopt now</a>
-          </article>
-
-          <article class="card">
-            <img src="img/placeholder.jpeg" alt="Image not available" />
-            <p>Name:</p>
-            <p>Age:</p>
-            <a href="adopt.html" class="btn">Adopt now</a>
-          </article>
-
-          <article class="card">
-            <img src="img/placeholder.jpeg" alt="Image not available" />
-            <p>Name:</p>
-            <p>Age:</p>
-            <a href="adopt.html" class="btn">Adopt now</a>
-          </article>
-
-          <article class="card">
-            <img src="img/placeholder.jpeg" alt="Image not available" />
-            <p>Name:</p>
-            <p>Age:</p>
-            <a href="adopt.html" class="btn">Adopt now</a>
-          </article>
-        </div>
-        <hr>
+        <div class="flex-container" id="flex-container-dogs"></div>
         <a href="dogs.html" class="btn">See more</a>
+      </section>
+
+      <hr />
+
+      <section class="about">
+        <h2>About Paws&Pals</h2>
+        <p>
+          Paws&Pals is a community-driven platform dedicated to connecting
+          loving families with adorable dogs looking for a forever home. Our
+          mission is to create a safe and welcoming space where dog lovers can
+          come together, share their stories, and find their perfect furry
+          companion.
+        </p>
       </section>
     </main>
 
     <footer>
-      <hr />
-      <p>
-        &copy; 2026 Paws&Pals. <br />
-        -- <br />
-        Built with care for dogs lovers everywhere. 🐶
-      </p>
+      <p>Paws&Pals &copy; 2026 - Built with care for dogs lovers 🐶</p>
+      <a href="#top"
+        ><img id="back-to-top" src="img/up-arrow.svg" alt="Back to top"
+      /></a>
     </footer>
+    <script src="js/index.js"></script>
   </body>
 </html>

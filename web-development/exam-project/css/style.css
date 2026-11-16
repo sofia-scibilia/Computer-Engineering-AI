@@ -1,6 +1,10 @@
+/* TODO: See more to be moved downwards */
+
+/* import fonts */
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
+/* general styles */
 * {
   box-sizing: border-box;
   margin: 1%;
@@ -13,17 +17,53 @@ body {
   color: #2d3142;
 }
 
+header {
+  background-color: #f9f6f0;
+  position: sticky;
+  top: 0;
+}
+
 footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: #658a71;
   color: #f9f6f0;
   margin-top: 7%;
   & p {
+    flex-basis: 95%;
+    flex-grow: 2;
     padding: 3%;
+    font-size: 0.9rem;
   }
+  & a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 5;
+  }
+  & img {
+    width: 65%;
+  }
+}
+
+button,
+select,
+input,
+textarea {
+  font-family: inherit;
 }
 
 strong {
   color: #d97706;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
 }
 
 h1,
@@ -47,16 +87,44 @@ img {
 
 a {
   color: #658a71;
+  &.active {
+    color: #d97706;
+  }
 }
 
 hr {
-  margin: 5%;
+  margin: 5%;;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 5%;
+}
+
+input,
+select,
+textarea {
+  border-radius: 5px;
+  padding: 2%;
+  font-size: 1rem;
+  &:focus {
+    outline-color: #658a71;
+  }
+}
+
+label {
+  text-align: left;
+  margin-bottom: 2%;
+}
+
+/* classes */
 .flex-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  margin-bottom: 5%;
 }
 
 .logo {
@@ -72,12 +140,19 @@ hr {
   border: 2px solid #658a71;
   border-radius: 5px;
   padding: 3%;
+  & img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
 }
 
 .btn {
   background-color: #d97706;
+  border-color: #d97706;
   border-radius: 5px;
   text-decoration: none;
+  font-size: 1rem;
   color: #f9f6f0;
   padding: 2%;
   &:active {
