@@ -1,6 +1,11 @@
 const flexContainer = document.getElementById("flex-container-dogs");
 const cards = document.getElementsByClassName("card");
 const seeMoreButton = document.getElementById("see-more");
+const createCardFunction = () => (
+  (dogIndex = createCard(dogData, dogIndex)),
+  console.log(dogIndex)
+);
+let dogIndex = 0;
 let dogData = [];
 let dogName = "";
 let dogAge = null;
@@ -50,8 +55,24 @@ function formVerification() {
   const chosenDog = document.getElementById("chosen-dog").value;
 }
 
-function createCard(data) {
-  for (let i = 0; i < 8; i++) {
+function createCard(data, dogIndex) {
+  let dogIndexStart = 0;
+  let dogIndexEnd = dogIndexStart + 8;
+
+  if (!dogIndex == 0) {
+    if (dogIndex % 2 === 0) {
+      dogIndexStart = dogIndex + 1;
+      dogIndexEnd = dogIndexStart + 7;
+    } else if (dogIndex > 94) {
+      dogIndexStart = dogIndex + 1;
+      dogIndexEnd = 100 - dogIndex;
+    } else {
+      dogIndexStart = dogIndex + 1;
+      dogIndexEnd = dogIndexStart + 8;
+    }
+  }
+
+  for (let i = dogIndexStart; i < dogIndexEnd; i++) {
     const newCard = document.createElement("article");
     newCard.classList.add("card");
 
@@ -72,11 +93,18 @@ function createCard(data) {
               <a href="adopt.html" class="btn adopt">Adopt now</a>`;
 
     flexContainer.appendChild(newCard);
+    dogIndex = i;
   }
+
+  if (dogIndex === 100) {
+    seeMoreButton.removeEventListener("click", createCardFunction);
+    console.log("There are no more dogs to see!");
+  }
+  return dogIndex;
 }
 
 window.onload = async function () {
   const dogData = await fetchDogData();
-  createCard(dogData);
-  seeMoreButton.addEventListener("click", createCard);
+  dogIndex = createCard(dogData, dogIndex);
+  seeMoreButton.addEventListener("click", createCardFunction);
 };
