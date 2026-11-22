@@ -1,6 +1,7 @@
 const flexContainer = document.getElementById("flex-container-dogs");
 const cards = document.getElementsByClassName("card");
 const seeMoreButton = document.getElementById("see-more");
+const loggedUserId = sessionStorage.getItem("loggedUserId");
 let dogData = [];
 let dogName = "";
 let dogAge = null;
@@ -14,6 +15,7 @@ async function fetchDogData() {
 
     if (response.ok) {
       dogData = await response.json();
+      sessionStorage.setItem("dogData", dogData);
       return dogData;
     } else if (!response.ok) {
       throw new Error(
@@ -23,31 +25,6 @@ async function fetchDogData() {
   } catch (error) {
     console.log(error.message);
   }
-}
-
-function submitAdoptionForm(e) {
-  e.preventDefault();
-
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const chosenDog = document.getElementById("chosen-dog").value;
-
-  const formData = {
-    name: name,
-    email: email,
-    phone: phone,
-    chosenDog: chosenDog,
-  };
-
-  console.log("Form data submitted:", formData);
-}
-
-function formVerification() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const chosenDog = document.getElementById("chosen-dog").value;
 }
 
 function createCard(data) {
@@ -65,17 +42,40 @@ function createCard(data) {
       dogImage = "img/placeholder.jpeg";
     }
 
-    newCard.innerHTML = `<img src="${dogImage}" alt="${dogName}.jpg" />
+    newCard.innerHTML = `<div class="img-wrapper">
+                <img src="${dogImage}" alt="${dogName}.jpg" />
+                <button class="btn favourite"><i class="bi bi-heart" aria-hidden="true"></i></button> 
+              </div>         
               <p>Name: ${dogName}</p>
               <p>Age: ${dogAge}</p>
-              <button class="btn favourite">Add to favourites</button>
               <a href="adopt.html" class="btn adopt">Adopt now</a>`;
+
+    const adoptButton = newCard.children[3];
+    const addFavourite = newCard.children[0].children[1];
+
+    adoptButton.addEventListener(
+      "click",
+      (event) => (selectedDog = retrieveDogData(event)),
+    );
+
+    addFavourite.addEventListener("click", (event) => addFavourites(event));
 
     flexContainer.appendChild(newCard);
   }
 }
 
+function addFavourites(event) {
+  event.preventDefault();
+  const target = event.currentTarget;
+
+  if (loggedUserId != "") {
+    target.classList.toggle("bi-heart-fill");
+  } else {
+    alert("Login to add dogs to favourites!");
+  }
+}
+
 window.onload = async function () {
-  const dogData = await fetchDogData();
+  dogData = await fetchDogData();
   createCard(dogData);
 };

@@ -5,12 +5,15 @@ const createCardFunction = () => (
   (dogIndex = createCard(dogData, dogIndex)),
   console.log(dogIndex)
 );
+const loggedUserId = sessionStorage.getItem("loggedUserId");
 let dogIndex = 0;
 let dogData = [];
 let dogName = "";
 let dogAge = null;
 let dogImage = "img/placeholder.jpeg";
+let selectedDog = 0;
 
+// retrieve data from the API and generate cards with them
 async function fetchDogData() {
   try {
     const response = await fetch(
@@ -28,31 +31,6 @@ async function fetchDogData() {
   } catch (error) {
     console.log(error.message);
   }
-}
-
-function submitAdoptionForm(e) {
-  e.preventDefault();
-
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const chosenDog = document.getElementById("chosen-dog").value;
-
-  const formData = {
-    name: name,
-    email: email,
-    phone: phone,
-    chosenDog: chosenDog,
-  };
-
-  console.log("Form data submitted:", formData);
-}
-
-function formVerification() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const chosenDog = document.getElementById("chosen-dog").value;
 }
 
 function createCard(data, dogIndex) {
@@ -74,6 +52,7 @@ function createCard(data, dogIndex) {
 
   for (let i = dogIndexStart; i < dogIndexEnd; i++) {
     const newCard = document.createElement("article");
+
     newCard.classList.add("card");
 
     if (!data.length == 0) {
@@ -86,11 +65,24 @@ function createCard(data, dogIndex) {
       dogImage = "img/placeholder.jpeg";
     }
 
-    newCard.innerHTML = `<img src="${dogImage}" alt="${dogName}.jpg" />
+    newCard.innerHTML = `<div class="img-wrapper">
+                <img src="${dogImage}" alt="${dogName}.jpg" />
+                <button class="btn favourite"><i class="bi bi-heart" aria-hidden="true"></i></button> 
+              </div>
               <p>Name: ${dogName}</p>
               <p>Age: ${dogAge}</p>
-              <button class="btn favourite">Add to favourites</button>
-              <a href="adopt.html" class="btn adopt">Adopt now</a>`;
+              
+              <button class="btn adopt">Adopt now</button>`;
+
+    const adoptButton = newCard.children[3];
+    const addFavourite = newCard.children[0].children[1];
+
+    adoptButton.addEventListener(
+      "click",
+      (event) => (selectedDog = retrieveDogData(event)),
+    );
+
+    addFavourite.addEventListener("click", (event) => addFavourites(event));
 
     flexContainer.appendChild(newCard);
     dogIndex = i;
@@ -103,8 +95,23 @@ function createCard(data, dogIndex) {
   return dogIndex;
 }
 
+// retrieve dog data when clicking on "Adopt now"
+function retrieveDogData(event) {
+  console.log(event.target.tagName);
+}
+
+// add the clicked card to favourites associated with the logged user
+function addFavourites(event) {
+  event.preventDefault();
+  const target = event.currentTarget;
+
+  target.classList.toggle("bi-heart-fill");
+}
+
+// functions to execute ONLOAD
 window.onload = async function () {
-  const dogData = await fetchDogData();
+  dogData = await fetchDogData();
   dogIndex = createCard(dogData, dogIndex);
   seeMoreButton.addEventListener("click", createCardFunction);
+  console.log("Logged user id: " + loggedUserId)
 };

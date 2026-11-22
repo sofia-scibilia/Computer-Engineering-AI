@@ -21,6 +21,7 @@ header {
   background-color: #f9f6f0;
   position: sticky;
   top: 0;
+  z-index: 99;
 }
 
 footer {
@@ -93,7 +94,7 @@ a {
 }
 
 hr {
-  margin: 5%;;
+  margin: 5%;
 }
 
 form {
@@ -158,6 +159,24 @@ label {
   &:active {
     background-color: #658a71;
   }
+  &.favourite {
+    position: absolute;
+    bottom: 3%;
+    right: -2%;
+    width: 20%;
+    height: 20%;
+  }
+}
+
+.img-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+#profile-picture {
+  border-radius: 50%;
+  width: 60%;
 }
 
 /* TABLET view */
